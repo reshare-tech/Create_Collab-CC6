@@ -86,9 +86,10 @@ class CC6 extends StatelessWidget {
       height: size.height,
       width: size.width,
       child: Stack(
+        overflow: Overflow.visible,
         children: [
           Container(
-            height: size.height,
+            height: 300,
             width: size.width,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -155,11 +156,12 @@ class CC6 extends StatelessWidget {
           ),
           Positioned(
             top: 106,
+            height: size.height - kBottomNavigationBarHeight - 106,
             width: size.width,
             child: ClipRRect(
               child: Container(
                 alignment: Alignment.topCenter,
-                height: size.height - 106,
+                height: size.height - 106 - kBottomNavigationBarHeight,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius:
@@ -330,13 +332,14 @@ class CC6 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.only(top: 150),
-                      child: Text(
-                        "There are no Subcollabs in this Collabs",
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xff3e3e3e).withOpacity(0.3)),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          "There are no Subcollabs in this Collabs",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xff3e3e3e).withOpacity(0.3)),
+                        ),
                       ),
                     )
                   ],
